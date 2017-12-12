@@ -7,7 +7,7 @@ grafana_repo:
     - name: /etc/apt/sources.list.d/grafana.list
     - require:
       - cmd: grafana_repos_key
-- contents: deb https://packagecloud.io/grafana/stable/debian/ jessie main
+    - contents: deb https://packagecloud.io/grafana/stable/debian/ jessie main
 
 grafana_soft:
   pkg.installed:
