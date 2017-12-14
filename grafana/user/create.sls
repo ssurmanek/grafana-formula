@@ -1,4 +1,4 @@
-{% for id, name, email, password in salt['pillar.get']('grafana:users', {}).items() %}
+{% for id, name, email, password in pillar.get('grafana:users', {}).items() %}
 create_user_{{ id }}:
   cmd.run:
     - name: >-
