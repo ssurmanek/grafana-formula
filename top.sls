@@ -1,4 +1,4 @@
 base:
   '*':
-    - grafana-user-create
+    - create-user-pillar
     - grafana-pillar
