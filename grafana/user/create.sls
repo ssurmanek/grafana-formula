@@ -5,5 +5,5 @@
 create_user_{{ id }}:
   cmd.run:
     - name: >-
-        curl -XPOST --user salt['pillar.get']('grafana:admin_username'):salt['pillar.get']('grafana:admin_password')  -H "Content-type: application/json" -d '{ "name": "{{ user.get('name') }}", "email": "{{ user.get('email') }}", "login": "{{ id }}", "password":"{{ user.get('password') }}" }' 'http://{{ bind_host }}:{{ bind_port }}/api/admin/users'
+        curl -XPOST --user {{ salt['pillar.get']('grafana:admin_username') }}:{{ salt['pillar.get']('grafana:admin_password') }}  -H "Content-type: application/json" -d '{ "name": "{{ user.get('name') }}", "email": "{{ user.get('email') }}", "login": "{{ id }}", "password":"{{ user.get('password') }}" }' 'http://{{ bind_host }}:{{ bind_port }}/api/admin/users'
 {% endfor %}      
