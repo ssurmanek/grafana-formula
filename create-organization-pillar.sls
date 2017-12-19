@@ -1,3 +1,3 @@
 organizations:
-    pillar1-org
-    pillar2-org
+    pillar1-org:
+    pillar2-org:
