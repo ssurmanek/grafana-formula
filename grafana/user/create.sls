@@ -8,7 +8,7 @@
             {% set emails = user.get('emails') %}
             {% for emailValue, email in emails.items() %}
                 {% if email.get('primary') == 'true'
-            - email: {{ emailValue }}:
+            - email: {{ emailValue }}
                 {% endif %}
             {% endfor %}
     {% endif %}
