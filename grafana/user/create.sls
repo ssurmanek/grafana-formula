@@ -2,7 +2,7 @@
     {% if user.get('existence') == 'present' %}
     create_user_{{ userName }}:
         grafana4_user.present:
-            - fullname: {{ user.get('familyName') }} {{ user.get('givenName') }}
+            - fullname: {{ user.get('givenName') }} {{ user.get('familyName') }}
             - password: {{ user.get('password') }}
             - name: {{ userName }}
             - email: {% set emails = user.get('emails') %}
