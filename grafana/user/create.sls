@@ -6,10 +6,8 @@
             - password: {{ user.get('password') }}
             - name: {{ userName }}
             - email: {% set emails = user.get('emails') %}
-                     {% for emailValue, email in emails.items() %}
-                         {% if email.get('primary') %}
-                             {{ emailValue }}
-                         {% endif %}
+                     {% for emailValue, email in emails.items() if email.get('primary') %}
+                         {{ emailValue }}
                      {% endfor %}
     {% endif %}
 {% endfor %}
