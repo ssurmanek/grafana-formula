@@ -5,11 +5,11 @@
             - fullname: {{ user.get('familyName') }} {{ user.get('givenName') }}
             - password: {{ user.get('password') }}
             - name: {{ userName }}
-            {% set emails = user.get('emails') %}
-            {% for emailValue, email in emails.items() %}
-                {% if email.get('primary') == 'true'
-            - email: {{ emailValue }}
-                {% endif %}
-            {% endfor %}
+            - email: {% set emails = user.get('emails') %}
+                        {% for emailValue, email in emails.items() %}
+                            {% if email.get('primary') == 'true'
+                                {{ emailValue }}
+                            {% endif %}
+                     {% endfor %}
     {% endif %}
 {% endfor %}
