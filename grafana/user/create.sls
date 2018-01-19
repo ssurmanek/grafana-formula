@@ -1,4 +1,4 @@
-{% for userName, user in users.items() %}
+{% for userName, user in salt['pillar.get']('users', {}).items() %}
     {% if user.get('existence') == 'present' %}
     create_user_{{ userName }}:
         grafana4_user.present:
