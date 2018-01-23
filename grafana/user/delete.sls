@@ -4,6 +4,6 @@
         grafana4_user.absent:
             - userName: {{ userName }}
             - require:
-                - update_pillar
+                - salt: update_pillar
     {% endif %}
 {% endfor %}
