@@ -9,7 +9,5 @@
                      {% for emailValue, email in emails.items() if email.get('primary') %}
                          {{ emailValue }}
                      {% endfor %}
-            - require:
-                - git_pillar: update_pillar
     {% endif %}
 {% endfor %}
