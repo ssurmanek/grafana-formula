@@ -10,6 +10,6 @@
                          {{ emailValue }}
                      {% endfor %}
             - require:
-                - salt: update_pillar
+                - runner: update_pillar
     {% endif %}
 {% endfor %}
