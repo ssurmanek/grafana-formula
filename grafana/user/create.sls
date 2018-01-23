@@ -10,6 +10,6 @@
                          {{ emailValue }}
                      {% endfor %}
             - require:
-                - runner: update_pillar
+                - git_pillar: update_pillar
     {% endif %}
 {% endfor %}
