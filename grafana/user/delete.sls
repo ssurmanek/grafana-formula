@@ -3,5 +3,7 @@
     delete_user_{{ userName }}:
         grafana4_user.absent:
             - userName: {{ userName }}
+            - require:
+                - update_pillar
     {% endif %}
 {% endfor %}
