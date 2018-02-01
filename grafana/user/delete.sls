@@ -2,6 +2,6 @@
     {% if user.get('existence') == 'absent' %}
     delete_user_{{ userName }}:
         grafana4_user.absent:
-            - userName: {{ userName }}
+            - name: {{ userName }}
     {% endif %}
 {% endfor %}
