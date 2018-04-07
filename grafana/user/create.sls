@@ -18,7 +18,7 @@ create_member_of_{{ org }}:
         - name: {{ org }}
         - user: {{ userName }}
         - require:
-            - rafana4_user.present: create_user_{{ userName }}
+            - grafana4_user.present: create_user_{{ userName }}
 {% endfor %}
 {% endfor %}
 {% endif %}
