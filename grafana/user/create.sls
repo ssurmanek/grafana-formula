@@ -5,10 +5,10 @@ create_user_{{ userName }}:
         - fullname: {{ user.get('givenName') }} {{ user.get('familyName') }}
         - password: {{ user.get('password') }}
         - name: {{ userName }}
-        - email: {% set emails = user.get('emails') %}
-                 {% for emailValue, email in emails.items() if email.get('primary') %}
-                 {{ emailValue }}
-                 {% endfor %}
+        {% set emails = user.get('emails') %}
+        {% for emailValue, email in emails.items() if email.get('primary') %}
+        - email: {{ emailValue }}
+        {% endfor %}
 {% set groups = user.get('groups') %}
 {% for group in groups if group.split(':')[0] == 'grafana' %}
 {% set orgs = group.split(':')[1].split(',') %}
