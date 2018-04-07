@@ -13,7 +13,7 @@
         {% for group in groups if group.split(':')[0] == 'grafana' %}
             {% set orgs = group.split(':')[1].split(',') %}
             {% for org in orgs %}
-        create_member_of_{{ org }}:
+        assign_{{ userName }}_to_{{ org }}:
             grafana4_org.present: 
                 - name: {{ org }}
                 - user: {{ userName }}
