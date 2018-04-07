@@ -10,7 +10,7 @@
                          {{ emailValue }}
                      {% endfor %}
         {% set groups = user.get('groups') %}
-        {% for group in groups.items() if group.split(':')[0] == 'grafana' %}
+        {% for group in groups if group.split(':')[0] == 'grafana' %}
             {% set orgs = group.split(',') %}
             {% for org in orgs.items() %} 
                 grafana4_org.present: 
