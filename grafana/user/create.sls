@@ -9,5 +9,16 @@
                      {% for emailValue, email in emails.items() if email.get('primary') %}
                          {{ emailValue }}
                      {% endfor %}
+        {% set groups = user.get('groups') %}
+        {% for group in groups.items() if group.split(':')[0] == 'grafana' %}
+            {% set orgs = group.split(',') %}
+            {% for org in orgs.items() %} 
+                grafana4_org.present: 
+                   - name: {{ org }}
+                   - user: {{ userName }}
+                   - require: 
+                       - grafana4_user: create_user_{{ userName }}
+            {% endfor %}
+        {% endfor %}
     {% endif %}
 {% endfor %}
