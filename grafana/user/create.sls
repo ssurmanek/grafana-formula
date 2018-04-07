@@ -16,8 +16,6 @@ create_user_{{ userName }}:
     grafana4_org.present: 
         - name: {{ org }}
         - user: {{ userName }}
-        - require: 
-            - grafana4_user: create_user_{{ userName }}
 {% endfor %}
 {% endfor %}
 {% endif %}
