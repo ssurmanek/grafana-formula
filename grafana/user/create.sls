@@ -12,7 +12,7 @@
         {% set groups = user.get('groups') %}
         {% for group in groups if group.split(':')[0] == 'grafana' %}
             {% set orgs = group.split(',') %}
-            {% for org in orgs.items() %} 
+            {% for org in orgs %} 
                 grafana4_org.present: 
                    - name: {{ org }}
                    - user: {{ userName }}
