@@ -7,7 +7,7 @@
                 - name: {{ userName }}
         {% set emails = user.get('emails') %}
             {% for emailValue, email in emails.items() if email.get('primary') %}
-        - email: {{ emailValue }}
+                - email: {{ emailValue }}
             {% endfor %}
         {% set groups = user.get('groups') %}
         {% for group in groups if group.split(':')[0] == 'grafana' %}
