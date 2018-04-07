@@ -12,7 +12,8 @@ create_user_{{ userName }}:
 {% set groups = user.get('groups') %}
 {% for group in groups if group.split(':')[0] == 'grafana' %}
 {% set orgs = group.split(':')[1].split(',') %}
-{% for org in orgs %} 
+{% for org in orgs %}
+create_member_of_{{ org }}:
     grafana4_org.present: 
         - name: {{ org }}
         - user: {{ userName }}
