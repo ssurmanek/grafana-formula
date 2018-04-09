@@ -11,7 +11,7 @@
             {% endfor %}
         {% if user.group is defined %} 
             {% set groups = user.get('groups') %}
-            {% for group in groups if group.split(':')[0] == 'grafana' %}
+            {% for group in groups if group.split(':')[0] == 'grafana-minion' %}
                 {% set orgs = group.split(':')[1].split(',') %}
                 {% for org in orgs %}
         assign_{{ userName }}_to_{{ org }}:
