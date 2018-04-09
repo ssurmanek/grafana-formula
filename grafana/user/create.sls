@@ -9,7 +9,7 @@
             {% for emailValue, email in emails.items() if email.get('primary') %}
                 - email: {{ emailValue }}
             {% endfor %}
-        {% if user.group %} 
+        {% if 'groups' in user %} 
             {% set groups = user.get('groups') %}
             {% for group in groups if group.split(':')[0] == 'grafana-minion' %}
                 {% set orgs = group.split(':')[1].split(',') %}
